@@ -79,23 +79,61 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            // Container(
-            //   height: 200,
-            //   width: double.infinity,
-            //   color: textColor,
-            //   child: Container(
-            //     height: 10,
-            //     width: double.infinity,
-            //     decoration: BoxDecoration(
-            //       color: primaryColor,
-            //       borderRadius: BorderRadius.circular(20),
-            //     ),
-            //     child: Column(children: [
-            //         Text("Trending", style: TextStyle(color: backgroundColor),),
-            //       ],
-            //     ),
-            //   ),
-            // ),
+            //* PUB
+            Stack(
+              children: [
+                Container(color: textColor, height: 110),
+                Padding(
+                  padding: const EdgeInsets.all(26),
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    alignment: Alignment.topLeft,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/promo_banner.png"),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //* PROMO container
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: promoColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            "Promo",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+
+                        //* Title
+                        Text(
+                          "Buy one, get one FREE",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 32,
+                            backgroundColor: textColor,
+                            height: 1.1,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

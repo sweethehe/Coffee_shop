@@ -32,11 +32,14 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 20),
-          Text(
-            'Welcome to our cozy coffee corner, where every cup is a delightful for you.',
-            style: TextStyle(color: backgroundColor),
-            textAlign: TextAlign.center,
+          const SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Welcome to our cozy coffee corner, where every cup is a delightful for you.',
+              style: TextStyle(color: backgroundColor, fontSize: 18),
+              textAlign: TextAlign.center,
+            ),
           ),
           customButton(
             context: context,
