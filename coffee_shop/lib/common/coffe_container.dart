@@ -46,7 +46,7 @@ Widget coffeeContainer({
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.star, color: const Color.fromARGB(255, 255, 241, 118)),
+                  Icon(Icons.star_rounded, color: const Color.fromARGB(255, 255, 241, 118)),
                   const SizedBox(width: 4),
                   Text(
                     rating.toString(),
@@ -57,27 +57,29 @@ Widget coffeeContainer({
             ),
           ],
         ),
-        const SizedBox(height: 16),
-        Text(name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 8),
+        Text(name, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         const SizedBox(height: 4),
         Text(description, style: TextStyle(color: Colors.grey)),
-        const SizedBox(height: 16),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              " \$ $price",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            Container(
-              padding: const EdgeInsets.all(6),
-              decoration: BoxDecoration(
-                color: primaryColor,
-                borderRadius: BorderRadius.circular(10),
+        Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                " \$ $price",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              child: Icon(Icons.add, color: Colors.white),
-            ),
-          ],
+              Container(
+                padding: const EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                  color: primaryColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(Icons.add, color: Colors.white),
+              ),
+            ],
+          ),
         ),
       ],
     ),

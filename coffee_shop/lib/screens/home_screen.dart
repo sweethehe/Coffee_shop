@@ -1,6 +1,7 @@
 import 'package:coffee_shop/common/coffe_container.dart';
 import 'package:coffee_shop/common/data_base.dart';
 import 'package:coffee_shop/common/selection_coffee_container.dart';
+import 'package:coffee_shop/screens/coffe_details_screen.dart';
 import 'package:coffee_shop/ui/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -17,22 +18,18 @@ class _HomeScreenState extends State<HomeScreen> {
     "All coffee",
     "Latte",
     "Americano",
-    "Machiato",
+    "Machiatto",
   ];
 
   List getSelectedCoffeeList() {
-    switch (selectedIndex) {
-      case 0:
-        return allCoffee;
-      case 1:
-        return lattes;
-      case 2:
-        return americano;
-      case 3:
-        return machiatos;
-      default:
-        return allCoffee;
+    if (selectedIndex == 0) {
+      return allCoffee;
     }
+    String categoryName = categories[selectedIndex];
+
+    return allCoffee
+        .where((coffee) => coffee['category'] == categoryName)
+        .toList();
   }
 
   @override
@@ -185,19 +182,29 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.symmetric(vertical: 10),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 0.7,
+                childAspectRatio: 0.8,
               ),
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: getSelectedCoffeeList().length,
               itemBuilder: (context, index) {
                 final selectedCoffee = getSelectedCoffeeList()[index];
-                return coffeeContainer(
-                  name: selectedCoffee["name"],
-                  description: selectedCoffee["description"],
-                  price: (selectedCoffee["price"] as num).toDouble(),
-                  rating: (selectedCoffee["rating"] as num).toDouble(),
-                  image: selectedCoffee["image"],
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CoffeDetailsScreen(coffee: selectedCoffee),
+                      ),
+                    );
+                  },
+                  child: coffeeContainer(
+                    name: selectedCoffee["name"],
+                    description: selectedCoffee["description"],
+                    price: (selectedCoffee["price"] as num).toDouble(),
+                    rating: (selectedCoffee["rating"] as num).toDouble(),
+                    image: selectedCoffee["image"],
+                  ),
                 );
               },
             ),
