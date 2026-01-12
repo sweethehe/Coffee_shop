@@ -1,3 +1,6 @@
+import 'package:coffee_shop/common/coffe_container.dart';
+import 'package:coffee_shop/common/data_base.dart';
+import 'package:coffee_shop/common/selection_coffee_container.dart';
 import 'package:coffee_shop/ui/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -9,11 +12,35 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int selectedIndex = 0;
+  final List<String> categories = [
+    "All coffee",
+    "Latte",
+    "Americano",
+    "Machiato",
+  ];
+
+  List getSelectedCoffeeList() {
+    switch (selectedIndex) {
+      case 0:
+        return allCoffee;
+      case 1:
+        return lattes;
+      case 2:
+        return americano;
+      case 3:
+        return machiatos;
+      default:
+        return allCoffee;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               height: 200,
@@ -99,7 +126,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        //* PROMO container
                         Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
@@ -117,7 +143,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         const SizedBox(height: 10),
 
-                        //* Title
                         Text(
                           "Buy one, get one FREE",
                           style: TextStyle(
@@ -133,6 +158,48 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
+            ),
+
+            //* Coffee list
+            SizedBox(
+              height: 50,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.only(left: 20),
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  return SelectionCoffeeContainer(
+                    title: categories[index],
+                    isTapped: selectedIndex == index,
+                    onTap: () {
+                      setState(() {
+                        selectedIndex = index;
+                      });
+                    },
+                  );
+                },
+              ),
+            ),
+
+            GridView.builder(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.7,
+              ),
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: getSelectedCoffeeList().length,
+              itemBuilder: (context, index) {
+                final selectedCoffee = getSelectedCoffeeList()[index];
+                return coffeeContainer(
+                  name: selectedCoffee["name"],
+                  description: selectedCoffee["description"],
+                  price: (selectedCoffee["price"] as num).toDouble(),
+                  rating: (selectedCoffee["rating"] as num).toDouble(),
+                  image: selectedCoffee["image"],
+                );
+              },
             ),
           ],
         ),
