@@ -1,5 +1,5 @@
 import 'package:coffee_shop/common/button.dart';
-import 'package:coffee_shop/screens/home_screen.dart';
+import 'package:coffee_shop/screens/bottom_nav_bar.dart';
 import 'package:coffee_shop/ui/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()),
+                MaterialPageRoute(builder: (context) => const BottomNavBarScreen()),
               );
             },
           ),
