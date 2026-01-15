@@ -87,3 +87,5 @@ List allCoffee = [
     "full_description": "Pour ceux qui ont besoin d'un coup de boost immédiat. Intense et riche."
   },
 ];
+
+List favoriteCoffee = [];
