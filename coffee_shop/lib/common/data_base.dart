@@ -2,6 +2,7 @@ List allCoffee = [
   // --- CATEGORIE MACHIATO ---
   {
     "id": "1",
+    "isFavorite": false,
     "name": "Caffe Mocha",
     "category": "Machiato",
     "description": "Deep Foam",
@@ -12,6 +13,7 @@ List allCoffee = [
   },
   {
     "id": "2",
+    "isFavorite": false,
     "name": "Caramel Machiato",
     "category": "Machiato",
     "description": "Sweet & Creamy",
@@ -24,6 +26,7 @@ List allCoffee = [
   // --- CATEGORIE LATTE ---
   {
     "id": "3",
+    "isFavorite": false,
     "name": "Flat White",
     "category": "Latte",
     "description": "Espresso based",
@@ -34,6 +37,7 @@ List allCoffee = [
   },
   {
     "id": "4",
+    "isFavorite": false,
     "name": "Vanilla Latte",
     "category": "Latte",
     "description": "Smooth Vanilla",
@@ -46,6 +50,7 @@ List allCoffee = [
   // --- CATEGORIE AMERICANO ---
   {
     "id": "5",
+    "isFavorite": false,
     "name": "Classic Americano",
     "category": "Americano",
     "description": "Bold & Hot",
@@ -56,6 +61,7 @@ List allCoffee = [
   },
   {
     "id": "6",
+    "isFavorite": false,
     "name": "Iced Americano",
     "category": "Americano",
     "description": "Deeply Refreshing",
@@ -68,6 +74,7 @@ List allCoffee = [
   // --- AUTRES (Pour remplir la grille "All Coffee") ---
   {
     "id": "7",
+    "isFavorite": false,
     "name": "Cappuccino",
     "category": "Latte",
     "description": "With extra foam",
@@ -78,6 +85,7 @@ List allCoffee = [
   },
   {
     "id": "8",
+    "isFavorite": false,
     "name": "Double Espresso",
     "category": "Americano",
     "description": "Pure Intensity",

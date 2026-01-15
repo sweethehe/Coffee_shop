@@ -14,7 +14,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Favorite Coffees")),
+      appBar: AppBar(title: Text("Favorite Coffees"), automaticallyImplyLeading: false,),
       body: favoriteCoffee.isEmpty
           ? Center(
               child: Column(
@@ -26,41 +26,43 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                 ],
               ),
             )
-          : Column(
-              children: [
-                GridView.builder(
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.8,
+          : SingleChildScrollView(
+            child: Column(
+                children: [
+                  GridView.builder(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.8,
+                    ),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: favoriteCoffee.length,
+                    itemBuilder: (context, index) {
+                      final selectedCoffee = favoriteCoffee[index];
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  CoffeDetailsScreen(coffee: selectedCoffee),
+                            ),
+                          );
+                        },
+                        child: coffeeContainer(
+                          name: selectedCoffee["name"],
+                          description: selectedCoffee["description"],
+                          price: (selectedCoffee["price"] as num).toDouble(),
+                          rating: (selectedCoffee["rating"] as num).toDouble(),
+                          image: selectedCoffee["image"],
+                        ),
+                      );
+                    },
                   ),
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: favoriteCoffee.length,
-                  itemBuilder: (context, index) {
-                    final selectedCoffee = favoriteCoffee[index];
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                CoffeDetailsScreen(coffee: selectedCoffee),
-                          ),
-                        );
-                      },
-                      child: coffeeContainer(
-                        name: selectedCoffee["name"],
-                        description: selectedCoffee["description"],
-                        price: (selectedCoffee["price"] as num).toDouble(),
-                        rating: (selectedCoffee["rating"] as num).toDouble(),
-                        image: selectedCoffee["image"],
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ),
+                ],
+              ),
+          ),
     );
   }
 }

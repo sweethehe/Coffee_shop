@@ -1,3 +1,5 @@
+import 'package:coffee_shop/common/custom_snack_bar.dart';
+import 'package:coffee_shop/common/data_base.dart';
 import 'package:coffee_shop/ui/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +15,18 @@ class _CoffeDetailsScreenState extends State<CoffeDetailsScreen> {
   //* Variables
   int selectedSize = 0;
 
+  //* Functions
+  void addToFavorite(final Map<String, dynamic> coffee) {
+    setState(() {
+      widget.coffee["isFavorite"] = !widget.coffee["isFavorite"];
+    });
+    if (widget.coffee["isFavorite"]) {
+      favoriteCoffee.add(coffee);
+    } else {
+      favoriteCoffee.remove(coffee);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +38,30 @@ class _CoffeDetailsScreenState extends State<CoffeDetailsScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.favorite_border_rounded),
-            onPressed: () {},
+            icon: Icon(
+              widget.coffee["isFavorite"]
+                  ? Icons.favorite_rounded
+                  : Icons.favorite_border_rounded,
+            ),
+            color: widget.coffee["isFavorite"] ? primaryColor : Colors.black,
+            onPressed: () {
+              addToFavorite(widget.coffee);
+              widget.coffee["isFavorite"]
+                  ? ScaffoldMessenger.of(context).showSnackBar(
+                      customSnackBar(
+                        message:
+                            '${widget.coffee["name"]} added to favorites  ٩(ˊᗜˋ )و',
+                        color: primaryColor,
+                      ),
+                    )
+                  : ScaffoldMessenger.of(context).showSnackBar(
+                      customSnackBar(
+                        message:
+                            '${widget.coffee["name"]} removed from favorites  (◞ ‸ ◟ㆀ)',
+                        color: promoColor,
+                      ),
+                    );
+            },
           ),
         ],
       ),
@@ -152,9 +188,15 @@ class _CoffeDetailsScreenState extends State<CoffeDetailsScreen> {
                             vertical: 16,
                           ),
                           decoration: BoxDecoration(
-                            color: selectedSize == 0 ? primaryColor.withValues(alpha: 0.3) : Colors.white,
+                            color: selectedSize == 0
+                                ? primaryColor.withValues(alpha: 0.3)
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: selectedSize == 0 ? primaryColor : backgroundColor),
+                            border: Border.all(
+                              color: selectedSize == 0
+                                  ? primaryColor
+                                  : backgroundColor,
+                            ),
                           ),
                           child: Text("S"),
                         ),
@@ -171,9 +213,15 @@ class _CoffeDetailsScreenState extends State<CoffeDetailsScreen> {
                             vertical: 16,
                           ),
                           decoration: BoxDecoration(
-                            color: selectedSize == 1 ? primaryColor.withValues(alpha: 0.3) : Colors.white,
+                            color: selectedSize == 1
+                                ? primaryColor.withValues(alpha: 0.3)
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: selectedSize == 1 ? primaryColor : backgroundColor),
+                            border: Border.all(
+                              color: selectedSize == 1
+                                  ? primaryColor
+                                  : backgroundColor,
+                            ),
                           ),
                           child: Text("M"),
                         ),
@@ -190,9 +238,15 @@ class _CoffeDetailsScreenState extends State<CoffeDetailsScreen> {
                             vertical: 16,
                           ),
                           decoration: BoxDecoration(
-                            color: selectedSize == 2 ? primaryColor.withValues(alpha: 0.3) : Colors.white,
+                            color: selectedSize == 2
+                                ? primaryColor.withValues(alpha: 0.3)
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: selectedSize == 2 ? primaryColor : backgroundColor),
+                            border: Border.all(
+                              color: selectedSize == 2
+                                  ? primaryColor
+                                  : backgroundColor,
+                            ),
                           ),
                           child: Text("L"),
                         ),
