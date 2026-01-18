@@ -278,28 +278,60 @@ class _CoffeDetailsScreenState extends State<CoffeDetailsScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "\$ ${widget.coffee["price"]}",
+                        "\$ ${(widget.coffee["price"] + (selectedSize == 0
+                                ? 0
+                                : selectedSize == 1
+                                ? 1
+                                : 2)).toStringAsFixed(2)}",
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                           color: primaryColor,
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 45,
-                          vertical: 16,
-                        ),
-                        decoration: BoxDecoration(
-                          color: primaryColor,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Text(
-                          "Buy now",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          Map<String, dynamic> coffeeToAdd = Map.from(
+                            widget.coffee,
+                          );
+                          coffeeToAdd['price'] =
+                              widget.coffee["price"] +
+                              (selectedSize == 0
+                                  ? 0
+                                  : selectedSize == 1
+                                  ? 1
+                                  : 2);
+                          coffeeToAdd['size'] = selectedSize == 0
+                              ? "S"
+                              : selectedSize == 1
+                              ? "M"
+                              : "L";
+
+                          cartCoffee.add(coffeeToAdd);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            customSnackBar(
+                              message:
+                                  '${widget.coffee["name"]} (${coffeeToAdd['size']}) added to cart (˶ˆᗜˆ˵)',
+                              color: primaryColor,
+                            ),
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 45,
+                            vertical: 16,
+                          ),
+                          decoration: BoxDecoration(
+                            color: primaryColor,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Text(
+                            "Buy now",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),

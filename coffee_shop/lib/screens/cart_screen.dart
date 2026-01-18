@@ -1,3 +1,5 @@
+import 'package:coffee_shop/common/cart_coffe_container.dart';
+import 'package:coffee_shop/common/data_base.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatefulWidget {
@@ -15,9 +17,30 @@ class _CartScreenState extends State<CartScreen> {
         title: Text("Votre panier"),
         automaticallyImplyLeading: false,
       ),
-      body: Center(
-        child: Text("Cart"),
-      )
+      body: cartCoffee.isEmpty
+          ? Center(child: Text("Your cart is empty (◞ ‸ ◟ㆀ)"))
+          : ListView.builder(
+              itemCount: cartCoffee.length,
+              itemBuilder: (context, index) {
+                return cartCoffeeContainer(
+                  cartCoffee[index],
+                  () {
+                    setState(() {
+                      cartCoffee[index]['quantity']++;
+                    });
+                  },
+                  () {
+                    setState(() {
+                      if (cartCoffee[index]['quantity'] > 1) {
+                        cartCoffee[index]['quantity']--;
+                      } else {
+                        cartCoffee.removeAt(index);
+                      }
+                    });
+                  },
+                );
+              },
+            ),
     );
   }
 }

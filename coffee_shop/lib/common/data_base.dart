@@ -8,6 +8,7 @@ List allCoffee = [
     "description": "Deep Foam",
     "price": 4.53,
     "rating": 4.8,
+    "quantity": 1,
     "image": "assets/images/coffee_1.png",
     "full_description": "Le Caffe Mocha est un mélange parfait d'espresso, de lait chaud et de chocolat, surmonté d'une mousse onctueuse."
   },
@@ -19,6 +20,7 @@ List allCoffee = [
     "description": "Sweet & Creamy",
     "price": 5.20,
     "rating": 4.9,
+    "quantity": 1,
     "image": "assets/images/coffee_1.png",
     "full_description": "Un espresso intense mélangé à du sirop de caramel et du lait onctueux, fini avec un filet de caramel."
   },
@@ -32,6 +34,7 @@ List allCoffee = [
     "description": "Espresso based",
     "price": 3.53,
     "rating": 4.7,
+    "quantity": 1,
     "image": "assets/images/coffee_2.png",
     "full_description": "Un espresso riche avec du lait chauffé à la vapeur pour une micro-mousse lisse et soyeuse."
   },
@@ -43,6 +46,7 @@ List allCoffee = [
     "description": "Smooth Vanilla",
     "price": 4.00,
     "rating": 4.5,
+    "quantity": 1,
     "image": "assets/images/coffee_2.png",
     "full_description": "Notre Latte classique agrémenté d'une touche de vanille de Madagascar."
   },
@@ -56,6 +60,7 @@ List allCoffee = [
     "description": "Bold & Hot",
     "price": 3.00,
     "rating": 4.2,
+    "quantity": 1,
     "image": "assets/images/coffee_3.png",
     "full_description": "L'espresso pur dilué avec de l'eau chaude pour un goût puissant mais allongé."
   },
@@ -67,6 +72,7 @@ List allCoffee = [
     "description": "Deeply Refreshing",
     "price": 3.50,
     "rating": 4.3,
+    "quantity": 1,
     "image": "assets/images/coffee_3.png",
     "full_description": "La version glacée de notre Americano, idéale pour les journées chaudes."
   },
@@ -80,6 +86,7 @@ List allCoffee = [
     "description": "With extra foam",
     "price": 4.10,
     "rating": 4.6,
+    "quantity": 1,
     "image": "assets/images/coffee_2.png",
     "full_description": "Un équilibre parfait entre espresso, lait chaud et une épaisse couche de mousse."
   },
@@ -91,6 +98,7 @@ List allCoffee = [
     "description": "Pure Intensity",
     "price": 2.50,
     "rating": 4.9,
+    "quantity": 1,
     "image": "assets/images/coffee_1.png",
     "full_description": "Pour ceux qui ont besoin d'un coup de boost immédiat. Intense et riche."
   },
