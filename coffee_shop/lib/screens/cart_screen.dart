@@ -1,9 +1,7 @@
 import 'package:coffee_shop/common/button.dart';
 import 'package:coffee_shop/common/cart_coffe_container.dart';
-import 'package:coffee_shop/common/custom_snack_bar.dart';
 import 'package:coffee_shop/common/data_base.dart';
 import 'package:coffee_shop/screens/bottom_nav_bar.dart';
-import 'package:coffee_shop/screens/home_screen.dart';
 import 'package:coffee_shop/ui/colors.dart';
 import 'package:flutter/material.dart';
 
