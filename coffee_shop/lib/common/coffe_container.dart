@@ -46,7 +46,10 @@ Widget coffeeContainer({
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.star_rounded, color: const Color.fromARGB(255, 255, 241, 118)),
+                  Icon(
+                    Icons.star_rounded,
+                    color: const Color.fromARGB(255, 255, 241, 118),
+                  ),
                   const SizedBox(width: 4),
                   Text(
                     rating.toString(),
@@ -60,7 +63,12 @@ Widget coffeeContainer({
         const SizedBox(height: 8),
         Text(name, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         const SizedBox(height: 4),
-        Text(description, style: TextStyle(color: Colors.grey)),
+        Text(
+          description,
+          style: TextStyle(color: Colors.grey),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
         Padding(
           padding: const EdgeInsets.only(top: 8),
           child: Row(

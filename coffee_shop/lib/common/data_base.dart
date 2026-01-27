@@ -10,7 +10,7 @@ List allCoffee = [
     "rating": 4.8,
     "quantity": 1,
     "image": "assets/images/coffee_1.png",
-    "full_description": "Le Caffe Mocha est un mélange parfait d'espresso, de lait chaud et de chocolat, surmonté d'une mousse onctueuse."
+    "full_description": "Caffe Mocha is a perfect blend of rich espresso, steamed milk, and premium chocolate, topped with a smooth, velvety foam."
   },
   {
     "id": "2",
@@ -22,7 +22,7 @@ List allCoffee = [
     "rating": 4.9,
     "quantity": 1,
     "image": "assets/images/coffee_1.png",
-    "full_description": "Un espresso intense mélangé à du sirop de caramel et du lait onctueux, fini avec un filet de caramel."
+    "full_description": "An intense espresso combined with sweet caramel syrup and creamy steamed milk, finished with a signature caramel drizzle."
   },
 
   // --- CATEGORIE LATTE ---
@@ -36,7 +36,7 @@ List allCoffee = [
     "rating": 4.7,
     "quantity": 1,
     "image": "assets/images/coffee_2.png",
-    "full_description": "Un espresso riche avec du lait chauffé à la vapeur pour une micro-mousse lisse et soyeuse."
+    "full_description": "A rich espresso shot with perfectly steamed milk to create a smooth, silky micro-foam texture."
   },
   {
     "id": "4",
@@ -48,7 +48,7 @@ List allCoffee = [
     "rating": 4.5,
     "quantity": 1,
     "image": "assets/images/coffee_2.png",
-    "full_description": "Notre Latte classique agrémenté d'une touche de vanille de Madagascar."
+    "full_description": "Our classic Latte infused with a delicate touch of premium Madagascar vanilla for a smooth and aromatic experience."
   },
 
   // --- CATEGORIE AMERICANO ---
@@ -62,7 +62,7 @@ List allCoffee = [
     "rating": 4.2,
     "quantity": 1,
     "image": "assets/images/coffee_3.png",
-    "full_description": "L'espresso pur dilué avec de l'eau chaude pour un goût puissant mais allongé."
+    "full_description": "Pure espresso shots diluted with hot water to maintain a bold flavor while offering a longer, smoother drink."
   },
   {
     "id": "6",
@@ -74,10 +74,10 @@ List allCoffee = [
     "rating": 4.3,
     "quantity": 1,
     "image": "assets/images/coffee_3.png",
-    "full_description": "La version glacée de notre Americano, idéale pour les journées chaudes."
+    "full_description": "The chilled version of our bold Americano, poured over ice for an incredibly refreshing caffeine boost."
   },
   
-  // --- AUTRES (Pour remplir la grille "All Coffee") ---
+  // --- AUTRES ---
   {
     "id": "7",
     "isFavorite": false,
@@ -88,7 +88,7 @@ List allCoffee = [
     "rating": 4.6,
     "quantity": 1,
     "image": "assets/images/coffee_2.png",
-    "full_description": "Un équilibre parfait entre espresso, lait chaud et une épaisse couche de mousse."
+    "full_description": "A perfect balance of rich espresso, steamed milk, and a thick, luxurious layer of frothy foam."
   },
   {
     "id": "8",
@@ -100,7 +100,7 @@ List allCoffee = [
     "rating": 4.9,
     "quantity": 1,
     "image": "assets/images/coffee_1.png",
-    "full_description": "Pour ceux qui ont besoin d'un coup de boost immédiat. Intense et riche."
+    "full_description": "For those who need an immediate energy boost. Intense, concentrated, and rich in flavor."
   },
 ];
 

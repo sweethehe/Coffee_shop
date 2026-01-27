@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
             'Fall in Love with Coffee in Blissful Delight!',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 32,
+              fontSize: 28,
               fontWeight: FontWeight.w600,
             ),
             textAlign: TextAlign.center,
@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               'Welcome to our cozy coffee corner, where every cup is a delightful for you.',
-              style: TextStyle(color: backgroundColor, fontSize: 18),
+              style: TextStyle(color: backgroundColor, fontSize: 16),
               textAlign: TextAlign.center,
             ),
           ),

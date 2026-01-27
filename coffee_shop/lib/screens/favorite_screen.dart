@@ -14,7 +14,10 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Favorite Coffees"), automaticallyImplyLeading: false,),
+      appBar: AppBar(
+        title: Text("Favorite Coffees"),
+        automaticallyImplyLeading: false,
+      ),
       body: favoriteCoffee.isEmpty
           ? Center(
               child: Column(
@@ -27,13 +30,14 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               ),
             )
           : SingleChildScrollView(
-            child: Column(
+              child: Column(
                 children: [
                   GridView.builder(
                     padding: EdgeInsets.symmetric(vertical: 10),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 0.8,
+                      childAspectRatio:
+                          (MediaQuery.of(context).size.width / 2) / 300,
                     ),
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -62,7 +66,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                   ),
                 ],
               ),
-          ),
+            ),
     );
   }
 }
