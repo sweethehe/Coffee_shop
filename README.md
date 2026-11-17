@@ -10,7 +10,7 @@ A mobile application designed for a coffee business. It showcases :
 
 You can download the .apk by checking the releases of this repository ! (Coming soon...)
 
-A video presentation of the application is also available on on <a href="https://www.linkedin.com/in/enora-amadou-938989238">LinkedIn</a> for further details !
+A video presentation of the application is also available on on <a href="https://lnkd.in/p/g3bx2BHC">LinkedIn</a> for further details !
 
 Figma link : https://www.figma.com/design/I81zv5JOZXFNYc25NoJ9Vq/Coffee-Shop-Mobile-App-Design--Community-?node-id=2-2&p=f&t=lqxbor4QQ2QQ4YEU-0
 
